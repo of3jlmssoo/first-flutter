@@ -213,7 +213,15 @@ class FavoritesPage extends StatelessWidget {
           // ),
           title: Text('Item ${appState.favorites[index]}'),
           subtitle: Text('Item description'),
-          trailing: Icon(Icons.more_vert),
+          // trailing: Icon(Icons.more_vert),
+          trailing: ElevatedButton(
+            child: Text('Remove'),
+            onPressed: () {
+              appState.favorites.remove(appState.favorites[index]);
+              // notifyListeners();
+              // button press logic
+            },
+          ),
         );
       },
     );
