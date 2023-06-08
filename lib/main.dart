@@ -178,7 +178,12 @@ class BigCard extends StatelessWidget {
   }
 }
 
-class FavoritesPage extends StatelessWidget {
+class FavoritesPage extends StatefulWidget {
+  @override
+  State<FavoritesPage> createState() => _FavoritesPageState();
+}
+
+class _FavoritesPageState extends State<FavoritesPage> {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -217,7 +222,11 @@ class FavoritesPage extends StatelessWidget {
           trailing: ElevatedButton(
             child: Text('Remove'),
             onPressed: () {
+              print(appState.favorites);
               appState.favorites.remove(appState.favorites[index]);
+              setState(() {
+                appState = context.watch<MyAppState>();
+              });
               // notifyListeners();
               // button press logic
             },
