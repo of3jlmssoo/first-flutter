@@ -189,19 +189,33 @@ class FavoritesPage extends StatelessWidget {
       );
     }
 
-    return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: Text('You have '
-              '${appState.favorites.length} favorites:'),
-        ),
-        for (var pair in appState.favorites)
-          ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text(pair.asLowerCase),
-          ),
-      ],
+    // return ListView(
+    //   children: [
+    //     Padding(
+    //       padding: const EdgeInsets.all(20),
+    //       child: Text('You have '
+    //           '${appState.favorites.length} favorites:'),
+    //     ),
+    //     for (var pair in appState.favorites)
+    //       ListTile(
+    //         leading: Icon(Icons.favorite),
+    //         title: Text(pair.asLowerCase),
+    //       ),
+    //   ],
+    // );
+    return ListView.builder(
+      itemCount: appState.favorites.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          // leading: CircleAvatar(
+          //   backgroundColor: const Color(0xff764abc),
+          //   child: Text(appState.favorites[index]),
+          // ),
+          title: Text('Item ${appState.favorites[index]}'),
+          subtitle: Text('Item description'),
+          trailing: Icon(Icons.more_vert),
+        );
+      },
     );
   }
 }
