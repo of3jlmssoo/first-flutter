@@ -223,9 +223,10 @@ class _FavoritesPageState extends State<FavoritesPage> {
             child: Text('Remove'),
             onPressed: () {
               print(appState.favorites);
-              appState.favorites.remove(appState.favorites[index]);
+              // appState.favorites.remove(appState.favorites[index]);
               setState(() {
-                appState = context.watch<MyAppState>();
+                appState.favorites.remove(appState.favorites[index]);
+                // appState = context.watch<MyAppState>();
               });
               // notifyListeners();
               // button press logic
