@@ -220,7 +220,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
           subtitle: Text('Item description'),
           // trailing: Icon(Icons.more_vert),
           trailing: ElevatedButton(
-            child: Text('Remove'),
+            child: Text('Remove', style: TextStyle(fontSize: 10)),
             onPressed: () {
               print(appState.favorites);
               // appState.favorites.remove(appState.favorites[index]);
